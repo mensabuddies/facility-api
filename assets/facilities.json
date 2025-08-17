@@ -1,0 +1,231 @@
+[
+  {
+    "organization_name": "Studierendenwerk Würzburg",
+    "organization_domain": "swerk-wue.de",
+    "facilities": [
+      {
+        "location": "Würzburg",
+        "canteens": [
+          {
+            "facility_name": "Mensa Röntgenring",
+            "id": "7f510873-c2e0-4caf-ba5d-00f3d353c704",
+            "address": "Röntgenring 12 97070 Würzburg",
+            "description": "Die Mensa Röntgenring mit 160 Plätzen ist eine Relaismensa, d.h. dass diese teilweise von der Mensa Studentenhaus aus beliefert wird.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-roentgenring-wuerzburg",
+            "menu_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-roentgenring-wuerzburg/menu"
+          },
+          {
+            "facility_name": "Mensa am Studentenhaus",
+            "id": "457f7bc2-b0e1-4e3f-8422-4d5e98fe7205",
+            "address": "Am Studentenhaus 97072 Würzburg",
+            "description": "Die Mensa am Studentenhaus liegt in unmittelbarer Nähe zur THWS und Sander-Uni. Der Außenbereich ist besonders im Sommer ein beliebter Treffpunkt.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-am-studentenhaus-wuerzburg",
+            "menu_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-am-studentenhaus-wuerzburg/menu"
+          },
+          {
+            "facility_name": "Mensateria Campus Hubland Nord",
+            "id": "0fc43ba5-b5c1-42f8-b3c5-7ac1a6835bed",
+            "address": "Magdalene‑Schoch‑Straße 97074 Würzburg",
+            "description": "Die Mensateria mit 500 Innen- und 60 Balkonplätzen befindet sich im Obergeschoss des Gebäudes am westlichen Rand des Campus Nord am Hubland. ",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensateria-campus-hubland-nord-wuerzburg",
+            "menu_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensateria-campus-hubland-nord-wuerzburg/menu"
+          },
+          {
+            "facility_name": "Mensa Campus Hubland Süd",
+            "id": "m_hub_s",
+            "address": "Am Hubland 97074 Würzburg",
+            "description": "Mit 1050 Plätzen bietet unsere größte Mensa kulinarische Verpflegung mit zusätzlichen Spezialstationen wie Teppanyaki-Grill, Pizzastation und Dönergrill.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-campus-hubland-sued",
+            "menu_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-campus-hubland-sued/menu"
+          },
+          {
+            "facility_name": "Mensa Josef‑Schneider‑Straße",
+            "id": "5aeee5a5-2d41-40cc-b486-5e2a10dd1bad",
+            "address": "Josef‑Schneider‑Straße 9 97080 Würzburg",
+            "description": "Um den Studierenden der Uni-Kliniken ein Frühstück und Mittagessen auf kurzem Weg zu ermöglichen, steht die Mensa mit 130 Plätzen zur Verfügung.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-josef-schneider-strasse-wuerzburg",
+            "menu_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-josef-schneider-strasse-wuerzburg/menu"
+          }
+        ],
+        "cafeterias": [
+          {
+            "facility_name": "Cafeteria am Studentenhaus",
+            "id": "f546a6aa-4c3c-43d2-a831-25f8272ae786",
+            "address": "Am Studentenhaus 97072 Würzburg",
+            "description": "Die Cafeteria stellt täglich eine Auswahl an fair gehandelten Kaffeespezialitäten, Backwaren und Snacks zur Verfügung.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-am-studentenhaus-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria Philo",
+            "id": "51df0ff9-60d6-4131-ae83-8fcbe5171604",
+            "address": "Am Hubland 97074 Würzburg",
+            "description": "Die Cafeteria mit befindet sich im Foyer des Philosophischen Institutsgebäudes am Campus Hubland Süd. Wir bieten eine Auswahl an fair trade Kaffee und Snacks.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-philo-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria Campus Hubland Nord",
+            "id": "2265d6d7-a4d1-4758-95df-fd2d5f6b284e",
+            "address": "Magdalene‑Schoch‑Straße 97074 Würzburg",
+            "description": "Am Campus Hubland Nord befindet sich die Cafeteria mit Innen- und Terassenplätzen. Bei gutem Wetter ist die Lounge auf der Terrasse einladend.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-campus-hubland-nord-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria Campus Hubland Süd",
+            "id": "344f4152-777f-4537-aedb-30c010adb7d9",
+            "address": "Am Hubland 97074 Würzburg",
+            "description": "Wir bieten Ihnen in unserer frisch renovierten Cafeteria Campus Hubland Süd eine Auswahl an fair gehandelten Kaffeespezialitäten wie Cappuccino, Espresso…",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-campus-hubland-sued-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria THWS Münzstraße ",
+            "id": "8c1dec25-7ed6-45d7-82f7-cb89058c7514",
+            "address": "Münzstraße 12 97070 Würzburg",
+            "description": "Wir bieten hier eine Auswahl fair gehandelter Kaffeespezialitäten, belegte Brötchen, Bagels, Snacks, süße Teilchen und alkoholfreie Getränke.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-thws-muenzstrasse-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria THWS Röntgenring",
+            "id": "a46e07bc-0c73-4f32-9056-df6f2bc890b0",
+            "address": "Röntgenring 8 97070 Würzburg",
+            "description": "Die Cafeteria THWS Röntgenring befindet sich im Gebäude D, Raum 1.01. Hier werden warme und kalte Snacks sowie fair trade Kaffeespezialitäten angeboten.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-thws-roentgenring-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria THWS Sanderheinrichsleitenweg",
+            "id": "686bd7a9-2f7e-40e8-803a-93f44da92889",
+            "address": "Sanderheinrichsleitenweg 20 97074 Würzburg",
+            "description": "Die Cafeteria befindet sich im Erdgeschoss (Raum H 016) des THWS-Neubaus. Hier bieten wir Snacks und eine Auswahl an fair trade Kaffeespezialitäten.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-thws-sanderheinrichsleitenweg-wuerzburg"
+          },
+          {
+            "facility_name": "Cafeteria Neue Universität",
+            "id": "b88c1f50-18ec-4596-b92e-b06a0cfbbbea",
+            "address": "Sanderring 2 97070 Würzburg",
+            "description": "Die Cafeteria befindet sich im EG-Rückgebäude der Neuen Universität. Neben kalten und warmen Snacks bieten wir hier fair gehandelten Kaffeespezialitäten an.",
+            "detail_url": "https://www.swerk-wue.de/wuerzburg/essen-trinken/cafeterien/cafeteria-neue-universitaet-wuerzburg"
+          }
+        ]
+      },
+      {
+        "location": "Aschaffenburg",
+        "canteens": [
+          {
+            "facility_name": "Mensa Hochschulcampus",
+            "id": "006c4e71-9295-4e4c-8398-02b66514e879",
+            "address": "Würzburger-Straße 45 63743 Aschaffenburg",
+            "description": "Im Bau 5 der Fachhochschule befindet sich die Mensa/Cafeteria mit 196 Innen- und 80 Terrassenplätzen. Die Cafeteria ist in die Mensa eingegliedert.",
+            "detail_url": "https://www.swerk-wue.de/aschaffenburg/essen-trinken/mensen-speiseplaene/mensa-hochschulcampus-aschaffenburg",
+            "menu_url": "https://www.swerk-wue.de/aschaffenburg/essen-trinken/mensen-speiseplaene/mensa-hochschulcampus-aschaffenburg/menu"
+          }
+        ],
+        "cafeterias": [
+          {
+            "facility_name": "Cafeteria Hochschulcampus",
+            "id": "a887b40a-0fc4-4bad-90f5-fa710acddf85",
+            "address": "Würzburger-Straße 45 63743 Aschaffenburg",
+            "description": "Im Bau 5 der Fachhochschule befindet sich die Cafeteria. Sie ist mit 40 Plätzen in die Mensa eingegliedert. Brötchenverkauf von 8.30 Uhr bis 14.00 Uhr.",
+            "detail_url": "https://www.swerk-wue.de/aschaffenburg/essen-trinken/cafeterien/cafeteria-hochschulcampus-aschaffenburg"
+          }
+        ]
+      },
+      {
+        "location": "Bamberg",
+        "canteens": [
+          {
+            "facility_name": "Mensa Austraße",
+            "id": "b577323b-c402-4610-8c2d-f85df46f1bcb",
+            "address": "Austraße 37 96047 Bamberg",
+            "description": "Zentral in Bamberg liegt die Mensa Austraße mit Innen- und Terrassenplätzen.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-austrasse-bamberg",
+            "menu_url": "https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-austrasse-bamberg/menu"
+          },
+          {
+            "facility_name": "Mensa Feldkirchenstraße",
+            "id": "93d7b42e-f662-4d56-80ff-aa0da40cfebd",
+            "address": "Feldkirchenstraße 21 96052 Bamberg",
+            "description": "Die Mensa Feldkirchenstraße mit 314 Innen- und 80 Terrassenplätzen liegt direkt neben der Universität. Bei schönem Wetter laden wir Sie auf unsere Terrasse ein.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-feldkirchenstrasse-bamberg",
+            "menu_url": "https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-feldkirchenstrasse-bamberg/menu"
+          },
+          {
+            "facility_name": "Cafeteria Alte Weberei",
+            "id": "3a32c685-3cb9-4ae3-b9dd-673cf881667b",
+            "address": "An der Weberei 5 96049 Bamberg",
+            "description": "Direkt an der ERBA-Uni befindet sich die Cafeteria Alte Weberei. Hier gibt es eine große Auswahl an Snacks, sowie ein Mittagessen.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-alte-weberei-bamberg",
+            "menu_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-alte-weberei-bamberg/menu"
+          },
+          {
+            "facility_name": "Cafeteria Markusplatz",
+            "id": "f4b40f50-acf5-4882-9fae-0e88367e39b9",
+            "address": "Markusplatz 3 96047 Bamberg",
+            "description": "Die Cafeteria in der Innenstadt bietet Kaffee sowie kalte und warme Snacks sowie ein Mittagessen.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-markusplatz-bamberg",
+            "menu_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-markusplatz-bamberg/menu"
+          }
+        ],
+        "cafeterias": [
+          {
+            "facility_name": "Cafeteria Feldkirchenstraße",
+            "id": "a668dc62-f1e7-4b3e-8dc3-02f766df0abd",
+            "address": "Feldkirchenstraße 21 96052 Bamberg",
+            "description": "Die Cafeteria befindet sich gleich neben dem Mensaeingang Feldkirchenstraße. Hier gibt es Snacks sowie selbstgemachte Smoothies und fair trade Kaffee.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-feldkirchenstrasse-bamberg"
+          },
+          {
+            "facility_name": "Cafeteria Alte Weberei",
+            "id": "5a653453-25fc-4291-925d-0b9db6dc64df",
+            "address": "An der Weberei 5 96049 Bamberg",
+            "description": "Direkt an der ERBA-Uni befindet sich die Cafeteria Alte Weberei. Hier gibt es eine große Auswahl an Snacks.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-alte-weberei-bamberg"
+          },
+          {
+            "facility_name": "Cafeteria Markusplatz",
+            "id": "75a9143c-e800-4780-a160-e3b8717e577a",
+            "address": "Markusplatz 3 96047 Bamberg",
+            "description": "Die Cafeteria in der Innenstadt bietet Kaffee sowie kalte und warme Snacks.",
+            "detail_url": "https://www.swerk-wue.de/bamberg/essen-trinken/cafeterien/cafeteria-markusplatz-bamberg"
+          }
+        ]
+      },
+      {
+        "location": "Schweinfurt",
+        "canteens": [
+          {
+            "facility_name": "Mensa THWS Campus",
+            "id": "820103ff-0d1d-4950-a548-ec521f8679bf",
+            "address": "Fritz-Drescher-Straße 1 97421 Schweinfurt",
+            "description": "Die Mensa befindet sich auf dem Campus der THWS. Im Sommer laden wir Sie auf unsere Sonnenterassen ein.",
+            "detail_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/mensen-speiseplaene/mensa-thws-campus-schweinfurt",
+            "menu_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/mensen-speiseplaene/mensa-thws-campus-schweinfurt/menu"
+          },
+          {
+            "facility_name": "Cafeteria Campus Ledward",
+            "id": "d84b19c5-cc7b-4bd2-980d-c7fff6ddcccf",
+            "address": "Konrad-Zuse-Straße 2 97421 Schweinfurt",
+            "description": "Die Cafeteria im neuen Campus Ledward der THWS bietet neben Backwaren und Getränken auch Pancakes und Currywurst an.",
+            "detail_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/cafeterien/cafeteria-campus-ledward-schweinfurt",
+            "menu_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/cafeterien/cafeteria-campus-ledward-schweinfurt/menu"
+          }
+        ],
+        "cafeterias": [
+          {
+            "facility_name": "Cafeteria THWS Campus",
+            "id": "4c2569ca-c363-479c-b9d6-4c7d3969254b",
+            "address": "Fritz-Drescher-Straße 1 97421 Schweinfurt",
+            "description": "Auf dem Campus der THWS befindet sich die in die Mensa integrierte Cafeteria mit Sonnenterasse und Chill Out Lounge.",
+            "detail_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/cafeterien/cafeteria-thws-campus-schweinfurt",
+            "menu_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/cafeterien/cafeteria-thws-campus-schweinfurt/menu"
+          },
+          {
+            "facility_name": "Cafeteria Campus Ledward",
+            "id": "655f31fd-3b19-4cc3-8d91-9c783276cc58",
+            "address": "Konrad-Zuse-Straße 2 97421 Schweinfurt",
+            "description": "Die Cafeteria im neuen Campus Ledward der THWS bietet neben Backwaren und Getränken auch Pancakes und Currywurst an.",
+            "detail_url": "https://www.swerk-wue.de/schweinfurt/essen-trinken/cafeterien/cafeteria-campus-ledward-schweinfurt"
+          }
+        ]
+      }
+    ]
+  }
+]
