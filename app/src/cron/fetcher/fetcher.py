@@ -6,6 +6,8 @@ from datetime import datetime
 from pathlib import Path
 
 """
+This cronjob is responsible for fetching facilities from facilities.json from the website of the Studierendenwerk.
+
 1. Loads facilities.json.
 2. Creates a new timestamped folder under assets/fetched/.
 3. Iterates through each facility.
@@ -17,7 +19,7 @@ from pathlib import Path
 """
 
 # Path setup
-BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
 print(BASE_DIR)
 FACILITIES_FILE = BASE_DIR / "assets" / "facilities.json"
 FETCHED_DIR = BASE_DIR / "assets" / "fetched"
