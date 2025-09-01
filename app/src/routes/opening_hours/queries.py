@@ -1,13 +1,12 @@
 from typing import Iterable
+
 from sqlalchemy import func, and_
 from sqlmodel import Session, select
 
 from app.src.config.database import OpeningHour
 
 
-def fetch_latest_opening_hours_for(
-    db: Session, facility_ids: Iterable[int]
-) -> dict[int, dict]:
+def fetch_latest_opening_hours_for(db: Session, facility_ids: Iterable[int]) -> dict[int, dict]:
     """Return {facility_id: opening_hours_json} for the latest timestamp per facility."""
     fac_ids = list(facility_ids)
     if not fac_ids:

@@ -3,7 +3,7 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
 
-from app.src.config.database import get_session, Organization, Location, Facility, OpeningHour
+from app.src.config.database import get_session, Organization, Location, Facility
 from app.src.routes.facility.queries import fetch_facilities
 from app.src.routes.facility.schemas import FacilityOut
 from app.src.routes.opening_hours.queries import fetch_latest_opening_hours_for

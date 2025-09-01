@@ -1,10 +1,9 @@
 from typing import List
 
 from fastapi import APIRouter, Depends
-from sqlalchemy.orm import selectinload
 from sqlmodel import Session, select
 
-from app.src.config.database import get_session, Organization, Location, Facility
+from app.src.config.database import get_session, Location
 
 router = APIRouter(prefix="/locations",
                    tags=["Location"])

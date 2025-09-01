@@ -4,10 +4,7 @@ from app.src.routes.location.schemas import LocationOut
 from app.src.routes.opening_hours.mappers import map_opening_hours
 
 
-def map_facility(
-    f: Facility,
-    opening_hours_json_by_id: dict[int, dict],
-) -> FacilityOut:
+def map_facility(f: Facility, opening_hours_json_by_id: dict[int, dict]) -> FacilityOut:
     return FacilityOut(
         id=f.id,
         name=f.name,

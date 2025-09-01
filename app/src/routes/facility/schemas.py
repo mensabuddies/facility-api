@@ -8,6 +8,7 @@ class FacilityTypeOut(BaseModel):
     id: int
     name: str
 
+
 class FacilityOut(BaseModel):
     id: int
     name: str

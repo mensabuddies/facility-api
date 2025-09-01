@@ -1,4 +1,3 @@
-# mappers.py
 from typing import Optional
 
 from app.src.routes.opening_hours.schemas import OpeningHoursOutput, OpeningHoursPerDay
@@ -7,6 +6,7 @@ from app.src.routes.opening_hours.schemas import OpeningHoursOutput, OpeningHour
 def map_opening_hours(oh_json: Optional[dict]) -> Optional[OpeningHoursOutput]:
     if not isinstance(oh_json, dict):
         return None
+
     # Each day may be absent → keep None; present → validate via Pydantic
     def per(day: str):
         data = oh_json.get(day)
