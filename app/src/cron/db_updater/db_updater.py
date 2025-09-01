@@ -1,15 +1,11 @@
 """
 This cronjob takes the fetched results from fetcher.py, parses them and stores them in the database.
 """
-from typing import List
 
-from sqlmodel import select
-
+from app.src.config.database import get_session, Notice, OpeningHour, Meal
 from app.src.cron.db_updater.helpers import DynamicFacility
 from app.src.cron.db_updater.schema import OrganizationBlock, LocationFacilities, Facility as FacilitySchema
-from content_loader import ContentLoader
-from app.src.config.database import get_session, Facility, Notice, OpeningHour, Meal
-
+from app.src.cron.db_updater.content_loader import ContentLoader
 
 def main():
     content_loader = ContentLoader()
@@ -27,15 +23,15 @@ def main():
                 dyn_facility: DynamicFacility = DynamicFacility(facility, db)
                 # Store Notices
                 new_notice: Notice = Notice(
-                    facility = dyn_facility.get_facility(),
-                    notices = dyn_facility.get_notices(),
+                    facility=dyn_facility.get_facility(),
+                    notices=dyn_facility.get_notices(),
                 )
                 db.add(new_notice)
 
                 # Store Opening Hours
                 new_opening_hours: OpeningHour = OpeningHour(
-                    facility = dyn_facility.get_facility(),
-                    opening_hours = dyn_facility.get_opening_hours()
+                    facility=dyn_facility.get_facility(),
+                    opening_hours=dyn_facility.get_opening_hours()
                 )
                 db.add(new_opening_hours)
 
@@ -52,6 +48,7 @@ def main():
 
     finally:
         generator.close()  # important: close so the contextmanager runs
+
 
 if __name__ == "__main__":
     main()

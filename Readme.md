@@ -7,6 +7,14 @@ fastapi dev app.py
 
 The APIs documentation can be found on the `/docs` or `/redoc` route.
 
+## Cronjobs
+You can run the cronjobs from the project-root like this:
+```bash
+python -m app.src.cron.init_db
+python -m app.src.cron.fetcher.fetcher 
+python -m app.src.cron.db_updater.db_updater
+```
+
 ## Alembic
 This project uses Alembic for database migrations.
 
