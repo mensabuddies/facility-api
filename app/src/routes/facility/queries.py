@@ -1,5 +1,6 @@
 from http import HTTPStatus
 from typing import Optional
+from uuid import UUID
 
 from fastapi import HTTPException
 from sqlalchemy.orm import selectinload
@@ -29,10 +30,10 @@ def fetch_facilities(db: Session,
     return db.exec(stmt).all()
 
 
-def fetch_facility_by_uuid(uuid: str, db: Session) -> Facility:
+def fetch_facility_by_uuid(uuid: UUID, db: Session) -> Facility:
     stmt = (
         select(Facility)
-        .where(Facility.uuid == uuid)
+        .where(Facility.uuid == str(uuid))
         .options(
             selectinload(Facility.location),
             selectinload(Facility.facility_type),

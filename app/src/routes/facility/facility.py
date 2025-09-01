@@ -1,9 +1,12 @@
 from http import HTTPStatus
+from pathlib import Path
+from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
 from app.src.config.database import get_session, Facility
+from app.src.routes.facility.file_response import serve_image_by_uuid, serve_image_by_id
 from app.src.routes.facility.queries import fetch_facility_by_uuid, fetch_facility_by_id
 from app.src.routes.facility.schemas import FacilityOut
 from app.src.routes.notice.mappers import map_notice
@@ -18,13 +21,15 @@ from app.src.routes.opening_hours.queries import fetch_latest_opening_hours_for
 from app.src.routes.opening_hours.schemas import OpeningHoursOutput
 from app.src.routes.organization.mappers import map_facility
 
+IMAGES_DIR = Path(__file__).resolve().parents[4] / "assets" / "images"
+
 router = APIRouter(prefix="/facility",
                    tags=["Facility"])
 
 
 @router.get("/uuid/{facility_uuid}",
             response_model=FacilityOut)
-async def get_facility_by_uuid(facility_uuid: str, db: Session = Depends(get_session)):
+async def get_facility_by_uuid(facility_uuid: UUID, db: Session = Depends(get_session)):
     facility: Facility = fetch_facility_by_uuid(uuid=facility_uuid, db=db)
 
     latest_oh = fetch_latest_opening_hours_for(db, [facility.id])
@@ -60,3 +65,17 @@ async def get_latest_meals(facility_id: int, db: Session = Depends(get_session))
     if not latest:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="No meals found")
     return map_meal(latest)
+
+@router.get("/uuid/{facility_uuid}/image")
+async def get_facility_image_by_uuid(
+    facility_uuid: UUID,
+    db: Session = Depends(get_session),
+):
+    return serve_image_by_uuid(db, facility_uuid)
+
+@router.get("/id/{facility_id}/image")
+async def get_facility_image_by_id(
+    facility_id: int,
+    db: Session = Depends(get_session),
+):
+    return serve_image_by_id(db, facility_id)
