@@ -5,3 +5,4 @@ alembic
 python-dotenv
 requests
 beautifulsoup4
+dateparser

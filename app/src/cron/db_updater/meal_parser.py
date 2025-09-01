@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 from typing import Any, Dict, List, Optional
 
+from dateparser import parse as dp_parse
+
 
 def _clean_text(s: str | None) -> str:
     if not s:
@@ -67,6 +69,19 @@ def _food_tags(icon_container) -> List[str]:
     return tags
 
 
+# NEW: parse date label to ISO (yyyy-mm-dd)
+# Accepts German labels like "1. September 2025" or "01.09.2025"
+# Returns None if parsing fails
+
+def _parse_date_label(label: Optional[str]) -> Optional[str]:
+    if not label:
+        return None
+    dt = dp_parse(label, languages=["de"])  # type: ignore[arg-type]
+    if not dt:
+        return None
+    return dt.date().isoformat()
+
+
 def parse_html_menu(html: str) -> Dict[str, Any]:
     soup = BeautifulSoup(html, "html.parser")
     root = soup.select_one(".gastronomy")
@@ -74,42 +89,49 @@ def parse_html_menu(html: str) -> Dict[str, Any]:
         return {"notices": [], "opening_times": {}, "weeks": [], "trimmings": [], "legend": {}}
 
     # --- Notices (collect all) ---
+    # NOTE: per request, this parsing is disabled. Keeping code commented for reference.
+    # notices: List[str] = []
+    # for n in root.select(".notice.notice_menu"):
+    #     text = " ".join(_clean_text(p.get_text()) for p in n.select("p")) or _clean_text(n.get_text())
+    #     text = _clean_text(text)
+    #     if text:
+    #         notices.append(text)
     notices: List[str] = []
-    for n in root.select(".notice.notice_menu"):
-        text = " ".join(_clean_text(p.get_text()) for p in n.select("p")) or _clean_text(n.get_text())
-        text = _clean_text(text)
-        if text:
-            notices.append(text)
 
     # --- Opening times (today + ranges) ---
-    def extract_opening_time_blocks(scope) -> List[Dict[str, str]]:
-        blocks: List[Dict[str, str]] = []
-        if not scope:
-            return blocks
-        for ot in scope.select(".opening-time"):
-            time_el = ot.select_one(".opening-times__time")
-            meta_el = ot.select_one(".opening-times__meta")
-            blocks.append({
-                "time": _clean_text(time_el.get_text()) if time_el else "",
-                "meta": _clean_text(meta_el.get_text()) if meta_el else "",
-            })
-        return blocks
+    # NOTE: per request, this parsing is disabled. Keeping code commented for reference.
+    # def extract_opening_time_blocks(scope) -> List[Dict[str, str]]:
+    #     blocks: List[Dict[str, str]] = []
+    #     if not scope:
+    #         return blocks
+    #     for ot in scope.select(".opening-time"):
+    #         time_el = ot.select_one(".opening-times__time")
+    #         meta_el = ot.select_one(".opening-times__meta")
+    #         blocks.append({
+    #             "time": _clean_text(time_el.get_text()) if time_el else "",
+    #             "meta": _clean_text(meta_el.get_text()) if meta_el else "",
+    #         })
+    #     return blocks
+    #
+    # opening = root.select_one(".opening-times_menu")
+    # opening_state = _clean_text(opening.select_one(".opening-time_state").get_text()) if opening else None
+    # today_blocks = extract_opening_time_blocks(opening.select_one(".opening-time_listing")) if opening else []
+    #
+    # all_ranges: List[Dict[str, str]] = []
+    # if opening:
+    #     for rng in opening.select(".opening-time_listing-all .opening-time_days"):
+    #         day_range = _clean_text((rng.select_one(".opening-time-day-range") or rng).get_text())
+    #         sets = extract_opening_time_blocks(rng.select_one(".opening-time_set"))
+    #         if sets:
+    #             for ot in sets:
+    #                 all_ranges.append({"days": day_range, "time": ot["time"], "meta": ot["meta"]})
+    #         else:
+    #             all_ranges.append({"days": day_range, "time": "", "meta": ""})
 
-    opening = root.select_one(".opening-times_menu")
-    opening_state = _clean_text(opening.select_one(".opening-time_state").get_text()) if opening else None
-    today_blocks = extract_opening_time_blocks(opening.select_one(".opening-time_listing")) if opening else []
-
+    # For closed detection, we need a simplified flag only
+    opening_state = None
+    today_blocks: List[Dict[str, str]] = []
     all_ranges: List[Dict[str, str]] = []
-    if opening:
-        for rng in opening.select(".opening-time_listing-all .opening-time_days"):
-            day_range = _clean_text((rng.select_one(".opening-time-day-range") or rng).get_text())
-            sets = extract_opening_time_blocks(rng.select_one(".opening-time_set"))
-            if sets:
-                for ot in sets:
-                    all_ranges.append({"days": day_range, "time": ot["time"], "meta": ot["meta"]})
-            else:
-                # still record the day range even if no explicit times are listed
-                all_ranges.append({"days": day_range, "time": "", "meta": ""})
 
     # helper: detect if a .day-menu explicitly says there are no meals
     def _day_has_no_meals_notice(day_el) -> bool:
@@ -117,9 +139,8 @@ def parse_html_menu(html: str) -> Dict[str, Any]:
         if not msg_el:
             return False
         txt = msg_el.get_text(" ", strip=True).casefold()
-        # catch common variants
         triggers = [
-            "aktuell keine daten",  # "Aktuell keine Daten vorhanden ..."
+            "aktuell keine daten",
             "keine daten vorhanden",
             "heute geschlossen",
             "geschlossen",
@@ -140,6 +161,8 @@ def parse_html_menu(html: str) -> Dict[str, Any]:
             day_id = day.get("data-day")
             date_h = day.select_one("h3")
             date_label = _clean_text(date_h.get_text()) if date_h else None
+            # NEW: derive ISO date
+            date_iso = _parse_date_label(date_label)
 
             entries: List[Dict[str, Any]] = []
             for art in day.select(".day-menu-entries > article"):
@@ -176,6 +199,7 @@ def parse_html_menu(html: str) -> Dict[str, Any]:
             days.append({
                 "day_id": day_id,
                 "date_label": date_label,
+                "date_iso": date_iso,  # NEW field in yyyy-mm-dd
                 "entries": entries,
                 "is_closed": day_is_closed,
             })

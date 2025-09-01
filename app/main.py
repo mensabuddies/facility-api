@@ -6,6 +6,10 @@ from fastapi import FastAPI, Security, Request
 from fastapi.params import Depends
 
 from app.src.config.database import create_db_and_tables, get_session
+from app.src.routes.organization.organization import router as organization_router
+from app.src.routes.location.location import router as location_router
+from app.src.routes.facility.facility import router as facility_router
+
 
 
 @asynccontextmanager
@@ -25,7 +29,9 @@ app = FastAPI(title="Mensabuddies API",
                   Depends(get_session)
               ],
               )
-# app.include_router(organizations_router)
+app.include_router(organization_router)
+app.include_router(location_router)
+app.include_router(facility_router)
 
 
 @app.get("/")

@@ -19,11 +19,9 @@ FACILITIES_FILE = BASE_DIR / "assets" / "facilities.json"
 FETCHED_DIR = BASE_DIR / "assets" / "fetched"
 
 # Import the Pydantic models
-from app.src.cron.db_updater.schema import (  # adjust path if you placed them elsewhere
+from app.src.cron.db_updater.schema import (
     FacilitiesRoot,
     OrganizationBlock,
-    LocationFacilities,
-    Facility,
 )
 
 class ContentLoader:
