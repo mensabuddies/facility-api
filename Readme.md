@@ -13,7 +13,7 @@ You can run the cronjobs from the project-root like this:
 python -m app.src.cron.init_db
 python -m app.src.cron.fetcher.fetcher 
 python -m app.src.cron.db_updater.db_updater
-```
+``
 
 ## Alembic
 This project uses Alembic for database migrations.
@@ -60,10 +60,3 @@ This project uses Alembic for database migrations.
 > ```bash
 > alembic downgrade <revision_id>
 > ```
-
-## Docker
-To build the image:
-```bash
-docker buildx build --platform linux/amd64 -t mensabuddies-public-api . --output type=docker
-docker save -o mensabuddies-public-api.tar mensabuddies-public-api
-```
