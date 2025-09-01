@@ -9,13 +9,12 @@ from app.src.config.database import get_session, Facility
 from app.src.routes.facility.file_response import serve_image_by_uuid, serve_image_by_id
 from app.src.routes.facility.queries import fetch_facility_by_uuid, fetch_facility_by_id
 from app.src.routes.facility.schemas import FacilityOut
-from app.src.routes.notice.mappers import map_notice
-from app.src.routes.notice.queries import fetch_latest_notice_for_one
-from app.src.routes.notice.schemas import NoticeOut
-
 from app.src.routes.meal.mappers import map_meal
 from app.src.routes.meal.queries import fetch_latest_meal_for_one
 from app.src.routes.meal.schemas import MealOut
+from app.src.routes.notice.mappers import map_notice
+from app.src.routes.notice.queries import fetch_latest_notice_for_one
+from app.src.routes.notice.schemas import NoticeOut
 from app.src.routes.opening_hours.mappers import map_opening_hours
 from app.src.routes.opening_hours.queries import fetch_latest_opening_hours_for
 from app.src.routes.opening_hours.schemas import OpeningHoursOutput
@@ -66,16 +65,18 @@ async def get_latest_meals(facility_id: int, db: Session = Depends(get_session))
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="No meals found")
     return map_meal(latest)
 
+
 @router.get("/uuid/{facility_uuid}/image")
 async def get_facility_image_by_uuid(
-    facility_uuid: UUID,
-    db: Session = Depends(get_session),
+        facility_uuid: UUID,
+        db: Session = Depends(get_session),
 ):
     return serve_image_by_uuid(db, facility_uuid)
 
+
 @router.get("/id/{facility_id}/image")
 async def get_facility_image_by_id(
-    facility_id: int,
-    db: Session = Depends(get_session),
+        facility_id: int,
+        db: Session = Depends(get_session),
 ):
     return serve_image_by_id(db, facility_id)

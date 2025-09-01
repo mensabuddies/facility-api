@@ -12,11 +12,12 @@ from app.src.routes.facility.queries import fetch_facility_by_uuid, fetch_facili
 
 IMAGES_DIR = Path(__file__).resolve().parents[4] / "assets" / "images"
 IMAGE_CANDIDATES: Tuple[Tuple[str, str], ...] = (
-    ("jpg",  "image/jpeg"),
+    ("jpg", "image/jpeg"),
     ("jpeg", "image/jpeg"),
-    ("png",  "image/png"),
+    ("png", "image/png"),
     ("webp", "image/webp"),
 )
+
 
 def _find_image_for_uuid(uuid_str: str) -> Optional[Tuple[Path, str]]:
     """Return (absolute_path, mime) or None for a given UUID string."""
@@ -26,6 +27,7 @@ def _find_image_for_uuid(uuid_str: str) -> Optional[Tuple[Path, str]]:
             return p, mime
     return None
 
+
 def _file_response(path: Path, mime: str) -> FileResponse:
     return FileResponse(
         path=str(path),
@@ -33,6 +35,7 @@ def _file_response(path: Path, mime: str) -> FileResponse:
         filename=path.name,
         headers={"Cache-Control": "public, max-age=86400"},  # 1 day
     )
+
 
 def serve_image_by_uuid(db: Session, facility_uuid: UUID) -> FileResponse:
     # Ensure facility exists (prevents scanning for arbitrary files)
@@ -43,6 +46,7 @@ def serve_image_by_uuid(db: Session, facility_uuid: UUID) -> FileResponse:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail="Image not found")
     path, mime = resolved
     return _file_response(path, mime)
+
 
 def serve_image_by_id(db: Session, facility_id: int) -> FileResponse:
     # Fetch facility to get its UUID
