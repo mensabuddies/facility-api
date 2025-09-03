@@ -74,9 +74,9 @@ async def get_facility_image_by_uuid(
     return serve_image_by_uuid(db, facility_uuid)
 
 
-@router.get("/id/{facility_id}/image")
-async def get_facility_image_by_id(
-        facility_id: int,
-        db: Session = Depends(get_session),
-):
-    return serve_image_by_id(db, facility_id)
+# @router.get("/id/{facility_id}/image")
+# async def get_facility_image_by_id(
+#         facility_id: int,
+#         db: Session = Depends(get_session),
+# ):
+#     return serve_image_by_id(db, facility_id)
