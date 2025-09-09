@@ -1,8 +1,6 @@
+import dateparser
 from bs4 import BeautifulSoup
 from typing import Any, Dict, List, Optional
-
-from dateparser import parse as dp_parse
-
 
 def _clean_text(s: str | None) -> str:
     if not s:
@@ -69,14 +67,28 @@ def _food_tags(icon_container) -> List[str]:
     return tags
 
 
-# NEW: parse date label to ISO (yyyy-mm-dd)
-# Accepts German labels like "1. September 2025" or "01.09.2025"
-# Returns None if parsing fails
-
 def _parse_date_label(label: Optional[str]) -> Optional[str]:
+    """
+    Parse a German date label into ISO format (YYYY-MM-DD).
+    Discards any leading words until the first digit (day of month).
+    Examples:
+        "Heute, 1. September 2025" -> "2025-09-01"
+        "Morgen, 2. September 2025" -> "2025-09-02"
+        "Montag, 1. September 2025" -> "2025-09-01"
+        "01.09.2025" -> "2025-09-01"
+    """
     if not label:
         return None
-    dt = dp_parse(label, languages=["de"])  # type: ignore[arg-type]
+
+    s = label.strip()
+
+    # cut away everything before the first digit
+    for i, ch in enumerate(s):
+        if ch.isdigit():
+            s = s[i:]
+            break
+
+    dt = dateparser.parse(s, languages=["de"])
     if not dt:
         return None
     return dt.date().isoformat()
