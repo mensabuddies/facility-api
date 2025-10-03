@@ -13,7 +13,7 @@ You can run the cronjobs from the project-root like this:
 python -m app.src.cron.init_db
 python -m app.src.cron.fetcher.fetcher 
 python -m app.src.cron.db_updater.db_updater
-``
+```
 
 ## Alembic
 This project uses Alembic for database migrations.
