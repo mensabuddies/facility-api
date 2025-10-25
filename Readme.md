@@ -12,7 +12,7 @@ The backend consists of three main parts:
 ## How would I add a new city?
 > Tbh, the project needs some refactoring to make it easier to extend. By now, its only in version 1.0 :'D
 
-1. Add the static data to the [`facilities.json`](https://github.com/mensabuddies/facility-api/blob/main/assets/facilities.json)
+1. Add the static data to the [`facilities.json`](https://github.com/mensabuddies/facility-api/blob/main/assets/facilities.json). Give each facility a uuidv4. 
 2. Run the database initialization script like this: `python -m app.src.cron.init_db`
 3. Adjust [`app/src/cron/fetcher`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/fetcher) to strip away the unnecessary parts. You can skip this step if you do not perform webscraping and access an API directly.
 4. Extend [`app/src/cron/db_updater`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/db_updater) to write the data to the database (either by parsing the HTML or by calling an API provided by a Studierendenwerk)
