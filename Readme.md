@@ -1,5 +1,26 @@
 # API
-This API uses FastAPI. Start the development server with: 
+> [!NOTE]  
+> Would like to add your own city? Feel free to create a Pull Request :)
+
+## How it works
+The backend consists of three main parts:
+0. A [script](https://github.com/mensabuddies/facility-api/blob/main/app/src/cron/init_db.py) initializing the database with some static data from [`facilities.json`](https://github.com/mensabuddies/facility-api/blob/main/assets/facilities.json)
+1. A cronjob getting the raw HTML from the site of the Studierendenwerk, stripping the unnecessary parts away and storing it as files (see [`app/src/cron/fetcher`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/fetcher)).
+2. A second cronjob parsing the downloaded files and populating the Postgres database (see [`app/src/cron/db_updater`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/db_updater)).
+3. The actual API reading the data from the database and returning the JSON (see [`app/src/routes`](https://github.com/mensabuddies/facility-api/tree/main/app/src/routes)). You can find API-Documententation on the [`/docs` route](https://facility-api.mensabuddies.de/docs).
+
+## How would I add a new city?
+> Tbh, the project needs some refactoring to make it easier to extend. By now, its only in version 1.0 :'D
+
+1. Add the static data to the [`facilities.json`](https://github.com/mensabuddies/facility-api/blob/main/assets/facilities.json)
+2. Run the database initialization script like this: `python -m app.src.cron.init_db`
+3. Adjust [`app/src/cron/fetcher`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/fetcher) to strip away the unnecessary parts. You can skip this step if you do not perform webscraping and access an API directly.
+4. Extend [`app/src/cron/db_updater`](https://github.com/mensabuddies/facility-api/tree/main/app/src/cron/db_updater) to write the data to the database (either by parsing the HTML or by calling an API provided by a Studierendenwerk)
+
+Now your cities canteens should be available via the API :)
+
+## Getting started
+This API uses [FastAPI](https://fastapi.tiangolo.com/) and [SQLModel](https://sqlmodel.tiangolo.com/). Start the development server with: 
 
 ```bash
 fastapi dev app.py
